@@ -4,6 +4,8 @@
 //st10306957
 //Jayden Meekoly
 //PROG6221
+//https://stackoverflow.com/questions/2552501/switch-statement-in-c-sharp (reference for  where i learnt switch case structure)
+//https://stackoverflow.com/questions/1019793/how-can-i-convert-string-to-int (infomation on how to convert string to int)
 ///////////////////////////////////////////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
