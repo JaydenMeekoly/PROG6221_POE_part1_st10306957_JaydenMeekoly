@@ -35,6 +35,34 @@ namespace RecipeApp
                     continue;
                 }
 
+                //switch case to call methods tp the main ------------------------------------------------------------------------------------------------------------------------------------------------------------
+                switch (choice)
+                {
+                    case 1:
+                        recipe.EnterRecipeDetails();
+                        break;
+                    case 2:
+                        recipe.DisplayRecipe();
+                        break;
+                    case 3:
+                        recipe.ScaleRecipe();
+                        break;
+                    case 4:
+                        recipe.ResetQuantities();
+                        break;
+                    case 5:
+                        recipe.ClearData();
+                        break;
+                    case 6:
+                        exit = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please enter a number between 1 and 6.");
+                        break;
+                }
+
             }
+
         }
+    }
 }
