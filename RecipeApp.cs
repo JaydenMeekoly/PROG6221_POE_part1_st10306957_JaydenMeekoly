@@ -82,4 +82,44 @@
         Console.WriteLine("Recipe details entered successfully.");
     }
 
+    //method to display recipe details-------------------------------------------------------------------------------------------------------------------------
+    public void DisplayRecipe()
+    {
+        if (ingredients == null || ingredients.Length == 0)
+        {
+            Console.WriteLine("There is no recipe.");
+            return;
+        }
+
+        Console.WriteLine("Recipe:");
+        Console.WriteLine("Ingredients:");
+
+        for (int i = 0; i < ingredients.Length; i++)
+        {
+            Console.WriteLine($"{quantities[i]} {units[i]} of {ingredients[i]}");
+        }
+
+        Console.WriteLine("Steps:");
+        for (int i = 0; i < steps.Length; i++)
+        {
+            Console.WriteLine($"{i + 1}. {steps[i]}");
+        }
+    }
+
+    //method to scale the quatities of the recipes-------------------------------------------------------------------------------------------------------------
+    public void ScaleRecipe()
+    {
+        Console.Write("Enter scale factor by choosing 0.5 or 2 or 3 (x0.5, x2, or x3): ");
+        double scaleFactor = double.Parse(Console.ReadLine());
+
+        for (int i = 0; i < quantities.Length; i++)
+        {
+            quantities[i] *= scaleFactor;
+        }
+
+        Console.WriteLine($"Recipe scaled by a factor of {scaleFactor}.");
+    }
+
+
+
 }
