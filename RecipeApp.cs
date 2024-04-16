@@ -120,6 +120,27 @@
         Console.WriteLine($"Recipe scaled by a factor of {scaleFactor}.");
     }
 
+    //method to reset the quanities to 0-----------------------------------------------------------------------------------------------------------------------
+    public void ResetQuantities()
+    {
+        if (originalQuantities == null)
+        {
+            Console.WriteLine("No quantities to reset.");
+            return;
+        }
 
+        Array.Copy(originalQuantities, quantities, originalQuantities.Length);
+        Console.WriteLine("Quantities reset to original values.");
+    }
+
+    //method to clear all the data-----------------------------------------------------------------------------------------------------------------------------
+    public void ClearData()
+    {
+        ingredients = null;
+        quantities = null;
+        units = null;
+        steps = null;
+        Console.WriteLine("All data has been cleared.");
+    }
 
 }
