@@ -1,8 +1,19 @@
-﻿using RecipeApp;
+﻿
+using RecipeApp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Prog Final POE
+// st10306957
+// Jayden Meekoly
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 class Program
 {
-    // Define delegates
+    // Define delegates--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     public delegate void RecipeAction(Recipe recipe);
 
     static void Main(string[] args)
@@ -10,7 +21,7 @@ class Program
         List<Recipe> recipes = new List<Recipe>();
         bool exit = false;
 
-        // Start of the while loop
+        //starting the while loop----------------------------------------------------------------------------------------------------------------------------------------------------------------------
         while (!exit)
         {
             Console.WriteLine("Recipe App");
@@ -29,19 +40,17 @@ class Program
                 continue;
             }
 
-            // Switch case to call methods to the main
             switch (choice)
             {
-                // Choice 1 allows the user to insert a new recipe.
-                // This recipe will also fall under a name
+                // this is choice 1, that allows the user to enter a new recipe------------------------------------------------------------------------------------------------------------------------
                 case 1:
                     Recipe newRecipe = new Recipe();
+                    newRecipe.OnCalorieNotification += NotifyCalorieLimitExceeded;
                     newRecipe.EnterRecipeDetails();
                     recipes.Add(newRecipe);
                     break;
-                // Choice 2 allows the user to display the recipes they have created.
-                // The user will first choose which recipe they would like to display.
-                // The options will display in alphabetical order.
+
+                // choice to allows the user to display the recipes they have made--------------------------------------------------------------------------------------------------------------------
                 case 2:
                     if (recipes.Count == 0)
                     {
@@ -69,10 +78,8 @@ class Program
                         }
                     }
                     break;
-                // Choice 3 allows the user to scale the recipe's quantities by 0.5, 2 or 3.
-                // The user must first choose which recipe they would like to scale.
-                // The program will send them back to the menu once they have scaled the quantities.
-                // If they wish to view the scaled quantities they can select display in the menu again
+
+                //this choice allows the user to scale the recipe--------------------------------------------------------------------------------------------------------------------------------------
                 case 3:
                     Console.WriteLine("Enter the name of the recipe to scale:");
                     string scaleName = Console.ReadLine();
@@ -86,8 +93,8 @@ class Program
                         Console.WriteLine("Recipe not found.");
                     }
                     break;
-                // Choice 4 allows the user to reset the quantities that were scaled.
-                // The user must first select the name of the recipe that they wish to reset.
+
+                // this choice allows the user to reset the quantities 0f the recipe-------------------------------------------------------------------------------------------------------------------
                 case 4:
                     Console.WriteLine("Enter the name of the recipe to reset quantities:");
                     string resetName = Console.ReadLine();
@@ -101,12 +108,14 @@ class Program
                         Console.WriteLine("Recipe not found.");
                     }
                     break;
-                // Choice 5 allows the user to completely clear all recipes.
+
+                //this choice allows the user to clear the recipe-------------------------------------------------------------------------------------------------------------------------------------- 
                 case 5:
                     recipes.Clear();
                     Console.WriteLine("All recipes cleared.");
                     break;
-                // Choice 6 allows the user to exit the program.
+
+                // and this choice allows the user to finally exit the recipe ------------------------------------------------------------------------------------------------------------------------
                 case 6:
                     exit = true;
                     break;
@@ -115,5 +124,11 @@ class Program
                     break;
             }
         }
+    }
+
+    // Event handler for calorie notification----------------------------------------------------------------------------------------------------------------------------------------------------------
+    static void NotifyCalorieLimitExceeded(double totalCalories)
+    {
+        Console.WriteLine($"Warning: This recipe exceeds 300 calories with a total of {totalCalories} calories.");
     }
 }
