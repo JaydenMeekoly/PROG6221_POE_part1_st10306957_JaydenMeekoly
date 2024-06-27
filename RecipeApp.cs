@@ -7,21 +7,24 @@ using System.Linq;
 //PROG6221 Final POE
 //st10306957
 //Jayden Meekoly
-//
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 namespace RecipeApp
 {
+
     public class Recipe
     {
-        public string RecipeName { get; private set; }
-        private List<string> ingredients;
-        private List<double> quantities;
-        private List<string> units;
-        private List<string> steps;
-        private List<double> originalQuantities;
-        private List<double> calories;
-        private List<string> foodGroups;
+        public string RecipeName { get;  set; }
+        public List<string> ingredients;
+        public List<double> quantities;
+        public List<string> units;
+        public List<string> steps;
+        public List<double> originalQuantities;
+        public List<double> calories;
+        public List<string> foodGroups;
+        public string Category { get; set; }
+        public string[] Ingredients { get; internal set; }
+        public object Steps {  get; internal set; }
 
         // Delegate for calorie notification-----------------------------------------------------------------------------------------------------------------------------------------------------------
         public delegate void CalorieNotificationHandler(double totalCalories);
@@ -177,6 +180,11 @@ namespace RecipeApp
             foodGroups.Clear();
 
             Console.WriteLine("All recipe data cleared.");
+        }
+
+        public override string ToString()
+        {
+            return RecipeName;
         }
     }
 }
