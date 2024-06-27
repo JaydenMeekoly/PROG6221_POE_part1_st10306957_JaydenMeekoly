@@ -43,3 +43,33 @@ Unit tests have been included to validate the calorie calculation functionality.
 
 Press "Enter" after every choice to proceed.
 
+Recipe App on WPF:
+
+This application allows you to manage recipes, including entering new recipes, displaying recipe details, scaling recipes, resetting quantities, and clearing data.
+
+Getting Started
+Run the RecipeAppWPF.exe executable.
+
+Interface Overview:
+
+Recipe List Tab: View all saved recipes. Select a recipe and use the buttons to interact with it.
+Enter New Recipe Tab: Enter details for a new recipe including name, ingredients, and steps. Click "Save Recipe" to add it to the list.
+Display Recipe Tab: View detailed information of a selected recipe.
+
+Using the Application
+
+1.Enter New Recipe:
+2.Enter a recipe name.
+3.Add ingredients by filling out the fields (Ingredient Name, Quantity, Unit, Calories, Food Group) and clicking "Add Ingredient".
+4.Enter recipe steps in the "Steps" textbox.
+5.Click "Save Recipe" to save the recipe.
+
+Manage Recipes:
+
+Display Recipe: Select a recipe from the list and click "Display Recipe" to view its details.
+Scale Recipe: Select a recipe from the list and click "Scale Recipe". Enter a scaling factor (e.g., 0.5, 2, 3) in the popup window and click "Scale" to resize the recipe.
+Reset Quantities: Select a recipe from the list and click "Reset Quantities" to revert ingredient quantities to their original values.
+Clear Data: Select a recipe from the list and click "Clear Data" to remove the recipe from the list.
+Additional Notes
+Ensure all fields are filled correctly when entering new recipes to avoid errors.
+Handle warnings that may appear during scaling if ingredient data is incomplete or missing.
